@@ -8,7 +8,7 @@ This project will monitor my level up progress on android
 2. Java 
 
 ## Link to design wireframes
-###[wireframes](https://github.com/King-Benx/android-level-up/blob/develop/art/wireframes.png)
+### [wireframes](https://github.com/King-Benx/android-level-up/blob/develop/art/wireframes.png)
 
 ## Author
 Asiimwe Benard
