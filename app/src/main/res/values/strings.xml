@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">JavaDevelopersInNairobi</string>
+    <string name="app_intro">Java Developers In Nairobi</string>
+    <string name="placeholder">Text here!</string>
+    <string name="repo">Repositories</string>
+    <string name="github">GitHub Link: </string>
 </resources>
