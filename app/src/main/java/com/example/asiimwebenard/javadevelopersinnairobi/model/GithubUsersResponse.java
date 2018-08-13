@@ -10,10 +10,13 @@ public class GithubUsersResponse {
 
     @SerializedName("items")
     private ArrayList<GithubUsers> githubUsers;
-
     public static GithubUsersResponse parseJSON(String response) {
         Gson gson = new GsonBuilder().create();
-        GithubUsersResponse githubUsersResponse = gson.fromJson(response, GithubUsersResponse.class);
-        return githubUsersResponse;
+        return gson.fromJson(response, GithubUsersResponse.class);
     }
+
+    public ArrayList<GithubUsers> getGithubUsers() {
+        return githubUsers;
+    }
+
 }
