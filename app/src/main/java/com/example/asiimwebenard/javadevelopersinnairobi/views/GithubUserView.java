@@ -2,8 +2,8 @@ package com.example.asiimwebenard.javadevelopersinnairobi.views;
 
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface GithubUserView {
-    void githubUserReady(ArrayList<GithubUsers> githubUsers);
+    void githubUserReady(List<GithubUsers> githubUsers);
 }

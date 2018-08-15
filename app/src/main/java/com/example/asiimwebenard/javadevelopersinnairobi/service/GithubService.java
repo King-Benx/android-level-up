@@ -6,8 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GithubService {
 
     private Retrofit retrofit = null;
+
     public GithubApi githubApi() {
-        String BASE_URL = "https://api.github.com";
+        final String BASE_URL = "https://api.github.com";
 
         if (retrofit == null) {
             retrofit = new Retrofit

@@ -7,11 +7,13 @@
     tools:context=".DetailActivity">
 
     <ImageView
+        android:id="@+id/background_image_detailView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/placeholder"
         android:scaleType="centerCrop"
-        android:src="@drawable/splashscreen_faded" />
+        android:src="@drawable/background"
+        />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,7 +36,9 @@
             app:layout_constraintHorizontal_bias="0.035"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.498" />
+            app:layout_constraintVertical_bias="0.498"
+            android:elevation="8dp"
+            />
 
         <LinearLayout
             android:layout_width="216dp"
@@ -49,19 +53,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profile_photo"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="8dp"
+            >
 
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:fontFamily="Helvetica Neue"
                 android:textAlignment="center"
                 android:textColor="@color/colorEmphasis"
-                android:textFontWeight="bold"
-                android:textSize="40sp"
-                tools:text="@string/placeholder" />
+                android:textSize="35sp"
+                tools:text="@string/placeholder"
+                android:fontFamily="@font/helvetica_neue"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -73,7 +79,7 @@
                 <View
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    android:background="?android:attr/colorPrimaryDark" />
+                    android:background="@color/colorPrimaryDark" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -89,18 +95,24 @@
                         android:textAlignment="center"
                         tools:text="@string/placeholder"
                         android:textColor="@color/colorEmphasis"
-                        android:textSize="30sp" />
+                        android:textSize="30sp"
+                        android:fontFamily="@font/helvetica_neue"
+                        />
 
                     <TextView
+                        android:id="@+id/repo_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/repo" />
+                        android:text="@string/repo"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto"
+                        />
                 </LinearLayout>
 
                 <View
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    android:background="?android:attr/colorPrimaryDark" />
+                    android:background="@color/colorPrimaryDark" />
             </LinearLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -122,17 +134,20 @@
                     android:orientation="horizontal"
                     >
                     <TextView
+                        android:id="@+id/github_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/github"
                         android:textColor="@color/colorTextDefinition"
-
+                        android:fontFamily="@font/roboto"
                         />
                     <TextView
                         android:id="@+id/github_link"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="TextView"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto"
                         android:textColor="@color/colorEmphasis"
                         />
                 </LinearLayout>
@@ -145,15 +160,19 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:background="?android:attr/colorPrimaryDark"
+                    android:background="@color/colorPrimaryDark"
                     android:clickable="true"
+                    android:contentDescription="@string/share"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@android:drawable/ic_menu_share" />
+                    app:srcCompat="@android:drawable/ic_menu_share"
+                    android:focusable="true"
+                    android:elevation="16dp"
+                    />
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
