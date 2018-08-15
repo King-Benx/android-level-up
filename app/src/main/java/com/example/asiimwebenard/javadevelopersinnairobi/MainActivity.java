@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setAdapter(recyclerViewAdapter);
     }
-
+  
     protected void onSaveInstanceState(Bundle state){
         super.onSaveInstanceState(state);
         state.putParcelable(LIST_STATE_KEY, listState);
@@ -40,6 +40,4 @@ public class MainActivity extends AppCompatActivity {
             layoutManager.onRestoreInstanceState(listState);
         }
     }
-
-
 }
