@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,11 +43,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         appViewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 Intent intent = new Intent(context, DetailActivity.class);
-                 intent.putExtra(USERNAME, profiles.get(position).getUsername());
-                 intent.putExtra(GITHUB_LINK, profiles.get(position).getGithub_link());
-                 intent.putExtra(PROFILE_PIC, profiles.get(position).getProfile_photo());
-                 intent.putExtra(REPO_NUMBER, profiles.get(position).getRepository_number());
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra(USERNAME, profiles.get(position).getUsername());
+                intent.putExtra(GITHUB_LINK, profiles.get(position).getGithub_link());
+                intent.putExtra(PROFILE_PIC, profiles.get(position).getProfile_photo());
+                intent.putExtra(REPO_NUMBER, profiles.get(position).getRepository_number());
                 context.startActivity(intent);
             }
         });
