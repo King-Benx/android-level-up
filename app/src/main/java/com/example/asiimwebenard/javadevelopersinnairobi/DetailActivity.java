@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.asiimwebenard.javadevelopersinnairobi.adapter.GithubUserAdapter;
+import com.example.asiimwebenard.javadevelopersinnairobi.views.CropCircleTransformation;
+import com.squareup.picasso.Picasso;
+
 public class DetailActivity extends AppCompatActivity {
 
     @Override
@@ -17,10 +21,10 @@ public class DetailActivity extends AppCompatActivity {
         TextView repoView = findViewById(R.id.repo_number);
         TextView githubLink = findViewById(R.id.github_link);
         ImageView imageView = findViewById(R.id.profile_photo);
-        textView.setText(intent.getStringExtra(RecyclerViewAdapter.USERNAME));
-        repoView.setText(""+intent.getIntExtra(RecyclerViewAdapter.REPO_NUMBER,0));
-        githubLink.setText(intent.getStringExtra(RecyclerViewAdapter.GITHUB_LINK));
-        imageView.setImageResource(intent.getIntExtra(RecyclerViewAdapter.PROFILE_PIC, 0));
+        textView.setText(intent.getStringExtra(GithubUserAdapter.USERNAME));
+        repoView.setText(""+intent.getIntExtra(GithubUserAdapter.REPO_NUMBER,0));
+        githubLink.setText(intent.getStringExtra(GithubUserAdapter.GITHUB_LINK));
+        Picasso.get().load(intent.getStringExtra(GithubUserAdapter.PROFILE_PIC)).transform(new CropCircleTransformation()).into(imageView);
 
     }
 }
