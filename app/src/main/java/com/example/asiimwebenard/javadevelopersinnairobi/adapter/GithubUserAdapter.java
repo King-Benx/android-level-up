@@ -16,8 +16,8 @@ import com.example.asiimwebenard.javadevelopersinnairobi.R;
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
 import com.example.asiimwebenard.javadevelopersinnairobi.views.CropCircleTransformation;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.AppViewHolder> {
     public static final String USERNAME = "com.example.asiimwebenard.javadevelopersinnairobi.adapter.USERNAME";
@@ -26,9 +26,9 @@ public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.Ap
     public static final String REPO_NUMBER = "com.example.asiimwebenard.javadevelopersinnairobi.adapter.REPO_NUMBER";
 
     private Context context;
-    private ArrayList<GithubUsers> githubUsers;
+    private List<GithubUsers> githubUsers;
 
-    public GithubUserAdapter(Context context, ArrayList<GithubUsers> githubUsers) {
+    public GithubUserAdapter(Context context, List<GithubUsers> githubUsers) {
         this.context = context;
         this.githubUsers = githubUsers;
     }
@@ -51,7 +51,7 @@ public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.Ap
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra(USERNAME, githubUsers.get(position).getUsername());
-                intent.putExtra(GITHUB_LINK, githubUsers.get(position).getGithub_link());
+                intent.putExtra(GITHUB_LINK, githubUsers.get(position).getGithubLink());
                 intent.putExtra(PROFILE_PIC, githubUsers.get(position).getAvatarUrl());
                 intent.putExtra(REPO_NUMBER, randomWithRange(10,50));
                 context.startActivity(intent);
@@ -79,10 +79,8 @@ public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.Ap
 
 
 
-    protected int randomWithRange(int min, int max)
-
-    {
+    protected int randomWithRange(int min, int max) {
         int range = (max - min) + 1;
-        return (int)(Math.random() * range) + min;
+        return (new Random().nextInt(range)) + min;
     }
 }

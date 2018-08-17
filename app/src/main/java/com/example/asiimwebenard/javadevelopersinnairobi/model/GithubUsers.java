@@ -25,7 +25,7 @@ public class GithubUsers implements Parcelable {
     private String username;
 
     @SerializedName("html_url")
-    private String github_link;
+    private String githubLink;
 
     @SerializedName("repos_url")
     private String repos;
@@ -33,11 +33,20 @@ public class GithubUsers implements Parcelable {
     @SerializedName("avatar_url")
     private String avatarUrl;
 
+    public String getGithubLink() {
+        return githubLink;
+    }
+
+    public void setGithubLink(String githubLink) {
+        this.githubLink = githubLink;
+    }
+
     private GithubUsers(Parcel in) {
         this.id = in.readInt();
         this.username = in.readString();
         this.avatarUrl = in.readString();
-        this.github_link = in.readString();
+
+        this.githubLink = in.readString();
         this.repos = in.readString();
 
     }
@@ -67,14 +76,6 @@ public class GithubUsers implements Parcelable {
         this.username = username;
     }
 
-    public String getGithub_link() {
-        return github_link;
-    }
-
-    public void setGithub_link(String github_link) {
-        this.github_link = github_link;
-    }
-
     public String getRepos() {
         return repos;
     }
@@ -93,7 +94,7 @@ public class GithubUsers implements Parcelable {
         out.writeString(this.username);
         out.writeString(this.avatarUrl);
         out.writeString(this.repos);
-        out.writeString(this.github_link);
+        out.writeString(this.githubLink);
     }
 
 }
