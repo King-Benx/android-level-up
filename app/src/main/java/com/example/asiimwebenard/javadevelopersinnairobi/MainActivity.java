@@ -1,10 +1,13 @@
 package com.example.asiimwebenard.javadevelopersinnairobi;
 
+import android.app.ProgressDialog;
 import android.os.Parcelable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.asiimwebenard.javadevelopersinnairobi.adapter.GithubUserAdapter;
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
@@ -26,8 +29,39 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recycler_view);
         layoutManager = new GridLayoutManager(this, 2);
-        GithubPresenter githubPresenter = new GithubPresenter(this);
+        final GithubPresenter githubPresenter = new GithubPresenter(this);
         githubPresenter.getAllUsers();
+        final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setTitle("Fetching data from the API");
+                progressDialog.setMessage("Loading Github Users... ");
+                progressDialog.setMax(100);
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progressDialog.show();
+                progressDialog.setCancelable(false);
+                new Thread(new Runnable() {
+                    public void run() {
+                        try {
+                            while(progressDialog.getProgress() <= progressDialog.getMax()){
+                                Thread.sleep(200);
+                                progressDialog.incrementProgressBy(2);
+                                if (progressDialog.getProgress() == progressDialog.getMax()) {
+                                    progressDialog.dismiss();
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            Log.v("Exception",e.toString());
+                        }
+                    }
+                }).start();
+                githubPresenter.getAllUsers();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
   
     protected void onSaveInstanceState(Bundle state){
