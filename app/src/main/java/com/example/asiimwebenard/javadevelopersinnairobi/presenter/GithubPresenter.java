@@ -1,11 +1,12 @@
 package com.example.asiimwebenard.javadevelopersinnairobi.presenter;
 
+import android.util.Log;
+
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsersResponse;
 import com.example.asiimwebenard.javadevelopersinnairobi.service.GithubService;
 import com.example.asiimwebenard.javadevelopersinnairobi.views.GithubUserView;
-
-import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,7 +32,7 @@ public class GithubPresenter {
                     public void onResponse(Call<GithubUsersResponse> call, Response<GithubUsersResponse> response) {
                         GithubUsersResponse githubUsersResponse = response.body();
                         if (githubUsersResponse != null && githubUsersResponse.getGithubUsers() != null) {
-                            ArrayList<GithubUsers> results = githubUsersResponse.getGithubUsers();
+                            List<GithubUsers> results = githubUsersResponse.getGithubUsers();
                             githubUserView.githubUserReady(results);
                         }
                     }
@@ -41,7 +42,7 @@ public class GithubPresenter {
                         try {
                             throw new InterruptedException("Failure getting users");
                         } catch (InterruptedException ex) {
-                            ex.printStackTrace();
+                            Log.v("Interupted Exception", ex.toString());
                         }
                     }
                 });

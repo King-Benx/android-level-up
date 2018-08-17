@@ -10,13 +10,12 @@ import com.example.asiimwebenard.javadevelopersinnairobi.adapter.GithubUserAdapt
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
 import com.example.asiimwebenard.javadevelopersinnairobi.presenter.GithubPresenter;
 import com.example.asiimwebenard.javadevelopersinnairobi.views.GithubUserView;
-
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements GithubUserView {
 
-    public final static String LIST_STATE_KEY= "recycler_list_state";
+    public static final String LIST_STATE_KEY= "recycler_list_state";
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView recyclerView;
     Parcelable listState= null;
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
 
 
     @Override
-    public void githubUserReady(ArrayList<GithubUsers> githubUsers) {
+    public void githubUserReady(List<GithubUsers> githubUsers) {
         recyclerView.setLayoutManager(layoutManager);
         RecyclerView.Adapter adapter = new GithubUserAdapter(this, githubUsers);
         recyclerView.setAdapter(adapter);
