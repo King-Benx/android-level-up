@@ -1,8 +1,23 @@
 package com.example.asiimwebenard.javadevelopersinnairobi.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class GithubUsers {
+public class GithubUsers implements Parcelable {
+
+    public static final Creator<GithubUsers> CREATOR = new Creator<GithubUsers>() {
+
+        public GithubUsers createFromParcel(Parcel in) {
+            return new GithubUsers(in);
+        }
+
+        public GithubUsers[] newArray(int size) {
+            return new GithubUsers[size];
+        }
+    };
+
     @SerializedName("id")
     private int id;
 
@@ -15,6 +30,26 @@ public class GithubUsers {
     @SerializedName("repos_url")
     private String repos;
 
+    @SerializedName("avatar_url")
+    private String avatarUrl;
+
+    private GithubUsers(Parcel in) {
+        this.id = in.readInt();
+        this.username = in.readString();
+        this.avatarUrl = in.readString();
+        this.github_link = in.readString();
+        this.repos = in.readString();
+
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
     public int getId() {
         return id;
     }
@@ -22,6 +57,7 @@ public class GithubUsers {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getUsername() {
         return username;
@@ -47,5 +83,17 @@ public class GithubUsers {
         this.repos = repos;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(this.id);
+        out.writeString(this.username);
+        out.writeString(this.avatarUrl);
+        out.writeString(this.repos);
+        out.writeString(this.github_link);
+    }
 
 }

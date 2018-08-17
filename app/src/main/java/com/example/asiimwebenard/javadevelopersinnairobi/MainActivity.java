@@ -6,20 +6,29 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.asiimwebenard.javadevelopersinnairobi.adapter.GithubUserAdapter;
+import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
+import com.example.asiimwebenard.javadevelopersinnairobi.presenter.GithubPresenter;
+import com.example.asiimwebenard.javadevelopersinnairobi.views.GithubUserView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+
+public class MainActivity extends AppCompatActivity implements GithubUserView {
+
     public final static String LIST_STATE_KEY= "recycler_list_state";
     private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView recyclerView;
     Parcelable listState= null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerView.Adapter recyclerViewAdapter = new RecyclerViewAdapter(this, Profile.populate_data());
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView = findViewById(R.id.recycler_view);
+        layoutManager = new GridLayoutManager(this, 2);
+        GithubPresenter githubPresenter = new GithubPresenter(this);
+        githubPresenter.getAllUsers();
     }
   
     protected void onSaveInstanceState(Bundle state){
@@ -39,5 +48,13 @@ public class MainActivity extends AppCompatActivity {
         if (listState != null) {
             layoutManager.onRestoreInstanceState(listState);
         }
+    }
+
+
+    @Override
+    public void githubUserReady(ArrayList<GithubUsers> githubUsers) {
+        recyclerView.setLayoutManager(layoutManager);
+        RecyclerView.Adapter adapter = new GithubUserAdapter(this, githubUsers);
+        recyclerView.setAdapter(adapter);
     }
 }

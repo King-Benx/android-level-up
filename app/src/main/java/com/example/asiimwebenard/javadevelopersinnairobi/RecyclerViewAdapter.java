@@ -61,7 +61,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class AppViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
         ImageView imageView;
-
         LinearLayout linearLayout;
         public AppViewHolder(@NonNull View itemView) {
             super(itemView);
