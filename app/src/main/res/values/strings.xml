@@ -6,4 +6,5 @@
     <string name="github">GitHub Link: </string>
     <string name="share">Share Profile Button</string>
     <string name="profile">Profile Image</string>
+    <string name="background">Background Image</string>
 </resources>

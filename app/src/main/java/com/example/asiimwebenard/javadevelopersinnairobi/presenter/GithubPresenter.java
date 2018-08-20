@@ -6,6 +6,7 @@ import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsersResponse;
 import com.example.asiimwebenard.javadevelopersinnairobi.service.GithubService;
 import com.example.asiimwebenard.javadevelopersinnairobi.views.GithubUserView;
+
 import java.util.List;
 
 import retrofit2.Call;

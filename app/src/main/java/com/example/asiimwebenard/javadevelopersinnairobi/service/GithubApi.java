@@ -1,5 +1,7 @@
 package com.example.asiimwebenard.javadevelopersinnairobi.service;
+
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsersResponse;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 
