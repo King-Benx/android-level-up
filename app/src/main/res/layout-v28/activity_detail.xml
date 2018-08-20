@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/splashscreen_faded"
-        android:scaleType="centerCrop"
         android:contentDescription="@string/placeholder"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
         />
 
     <android.support.constraint.ConstraintLayout
@@ -27,41 +28,149 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:src="@mipmap/ic_launcher"
             android:contentDescription="@string/placeholder"
+            android:src="@mipmap/ic_launcher"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.035"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.498" />
+            app:layout_constraintVertical_bias="0.498"
+            android:elevation="8dp"
+            />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="196dp"
-            android:layout_height="240dp"
+            android:layout_width="216dp"
+            android:layout_height="260dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@color/colorWhiteText"
             android:alpha="0.6"
+            android:background="@color/colorWhiteText"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profile_photo"
             app:layout_constraintTop_toTopOf="parent"
+            android:elevation="8dp"
             >
+
             <TextView
+                android:id="@+id/username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="@string/placeholder"
-                android:fontFamily="Helvetica Neue"
-                android:textSize="40sp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/colorEmphasis"
-                android:id="@+id/username"
-                android:textFontWeight="bold"
+                android:textSize="35sp"
+                tools:text="@string/placeholder"
+                android:fontFamily="@font/helvetica_neue"
                 />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/repo_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        tools:text="@string/placeholder"
+                        android:textColor="@color/colorEmphasis"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/helvetica_neue"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repo"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark" />
             </LinearLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/imageButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/github"
+                        android:textColor="@color/colorTextDefinition"
+                        android:fontFamily="@font/roboto"
+                        />
+                    <TextView
+                        android:id="@+id/github_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="TextView"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/colorEmphasis"
+                        />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:clickable="true"
+                    android:contentDescription="@string/share"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@android:drawable/ic_menu_share"
+                    android:focusable="true"
+                    android:elevation="16dp"
+                    />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
