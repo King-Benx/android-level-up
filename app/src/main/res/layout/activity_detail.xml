@@ -11,7 +11,8 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/placeholder"
         android:scaleType="centerCrop"
-        android:src="@drawable/splashscreen_faded" />
+        android:src="@drawable/background"
+        />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,7 +35,9 @@
             app:layout_constraintHorizontal_bias="0.035"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.498" />
+            app:layout_constraintVertical_bias="0.498"
+            android:elevation="8dp"
+            />
 
         <LinearLayout
             android:layout_width="216dp"
@@ -49,18 +52,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profile_photo"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="8dp"
+            >
 
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:fontFamily="Helvetica Neue"
                 android:textAlignment="center"
                 android:textColor="@color/colorEmphasis"
-                android:textSize="30sp"
-                tools:text="@string/placeholder" />
+                android:textSize="35sp"
+                tools:text="@string/placeholder"
+                android:fontFamily="@font/helvetica_neue"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -88,12 +94,17 @@
                         android:textAlignment="center"
                         tools:text="@string/placeholder"
                         android:textColor="@color/colorEmphasis"
-                        android:textSize="30sp" />
+                        android:textSize="30sp"
+                        android:fontFamily="@font/helvetica_neue"
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/repo" />
+                        android:text="@string/repo"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto"
+                        />
                 </LinearLayout>
 
                 <View
@@ -125,13 +136,15 @@
                         android:layout_height="wrap_content"
                         android:text="@string/github"
                         android:textColor="@color/colorTextDefinition"
-
+                        android:fontFamily="@font/roboto"
                         />
                     <TextView
                         android:id="@+id/github_link"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="TextView"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto"
                         android:textColor="@color/colorEmphasis"
                         />
                 </LinearLayout>
@@ -154,7 +167,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
                     app:srcCompat="@android:drawable/ic_menu_share"
-                    android:focusable="true" />
+                    android:focusable="true"
+                    android:elevation="16dp"
+                    />
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

@@ -37,10 +37,6 @@ public class GithubUsers implements Parcelable {
         return githubLink;
     }
 
-    public void setGithubLink(String githubLink) {
-        this.githubLink = githubLink;
-    }
-
     private GithubUsers(Parcel in) {
         this.id = in.readInt();
         this.username = in.readString();
@@ -53,10 +49,6 @@ public class GithubUsers implements Parcelable {
 
     public String getAvatarUrl() {
         return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
     }
 
     public int getId() {
@@ -76,13 +68,6 @@ public class GithubUsers implements Parcelable {
         this.username = username;
     }
 
-    public String getRepos() {
-        return repos;
-    }
-
-    public void setRepos(String repos) {
-        this.repos = repos;
-    }
 
     @Override
     public int describeContents() {
