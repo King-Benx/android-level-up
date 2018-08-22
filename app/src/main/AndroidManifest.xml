@@ -27,7 +27,7 @@
             android:screenOrientation="fullSensor"
             android:name=".DetailActivity"
             android:label="@string/app_intro"
-            ></activity>
+            />
     </application>
 
 </manifest>

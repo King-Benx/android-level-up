@@ -26,6 +26,8 @@ dependencies {
     testImplementation "junit:junit:$rootProject.jUnitVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.testRunnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
     implementation "com.android.support:recyclerview-v7:$rootProject.supportSdkVersion"
     implementation "com.squareup.picasso:picasso:$rootProject.picasoVersion"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
