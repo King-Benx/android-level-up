@@ -7,6 +7,7 @@
     tools:context=".DetailActivity">
 
     <ImageView
+        android:id="@+id/background_image_detailView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/placeholder"
@@ -99,6 +100,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/repo_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/repo"
@@ -132,6 +134,7 @@
                     android:orientation="horizontal"
                     >
                     <TextView
+                        android:id="@+id/github_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/github"
