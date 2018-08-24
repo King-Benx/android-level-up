@@ -1,17 +1,22 @@
 package com.example.asiimwebenard.javadevelopersinnairobi;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.Settings;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.example.asiimwebenard.javadevelopersinnairobi.adapter.GithubUserAdapter;
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
 import com.example.asiimwebenard.javadevelopersinnairobi.presenter.GithubPresenter;
+import com.example.asiimwebenard.javadevelopersinnairobi.util.NetworkConnection;
 import com.example.asiimwebenard.javadevelopersinnairobi.views.GithubUserView;
 
 import java.util.List;
@@ -31,7 +36,21 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
         recyclerView = findViewById(R.id.recycler_view);
         layoutManager = new GridLayoutManager(this, 2);
         final GithubPresenter githubPresenter = new GithubPresenter(this);
-        githubPresenter.getAllUsers();
+        if (NetworkConnection.connectionStatus(MainActivity.this)){
+            githubPresenter.getAllUsers();
+        }else{
+            Snackbar.make(findViewById(R.id.coordinator), "Please enable an internet connection", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("NETWORK OPTION", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+                            if (intent.resolveActivity(getPackageManager()) != null) {
+                                startActivity(intent);
+                            }
+                        }
+                    })
+                    .show();
+        }
         final SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipe_refresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
