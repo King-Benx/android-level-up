@@ -30,6 +30,9 @@
             android:name=".DetailActivity"
             android:label="@string/app_intro"
             />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="80231a7745ab1acb04d4440829048abe3a2362ca" />
     </application>
   
 </manifest>

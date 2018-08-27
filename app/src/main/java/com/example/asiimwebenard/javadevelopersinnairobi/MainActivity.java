@@ -13,12 +13,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.asiimwebenard.javadevelopersinnairobi.adapter.GithubUserAdapter;
 import com.example.asiimwebenard.javadevelopersinnairobi.model.GithubUsers;
 import com.example.asiimwebenard.javadevelopersinnairobi.presenter.GithubPresenter;
 import com.example.asiimwebenard.javadevelopersinnairobi.util.NetworkConnection;
 import com.example.asiimwebenard.javadevelopersinnairobi.views.GithubUserView;
 
+import io.fabric.sdk.android.Fabric;
 import java.util.List;
 
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements GithubUserView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recycler_view);
         layoutManager = new GridLayoutManager(this, 2);
