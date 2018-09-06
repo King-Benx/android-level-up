@@ -4,8 +4,9 @@
 
 This project displays java developers based in Nairobi and it is to help show my progress in the Android Level Up.
 
-### Link to Mock Designs
+### SCREEN SHOTS
 ![mocks](https://github.com/King-Benx/android-level-up/blob/develop/art/wireframes.png)
+
 ### [Mock Designs](https://github.com/King-Benx/android-level-up/blob/ft-wireframe-mockups-158792524/art/wireframes.png)
 
 ## Getting Started
